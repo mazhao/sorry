@@ -33,6 +33,8 @@ app.use(express.session());
 // ejs 默认情况下不能在模板中访问session对象。
 // 所以在每次render之前先把session对象保存到locals对象，已达到可以再ejs模板中使用session的目的。
 
+// **==  位置必须放在 app.use(app.router) 之前，否则行为或数据可能不正确！ ==**
+
 app.use(function(req, res, next){
 
     console.log("req.session:" + req.session);

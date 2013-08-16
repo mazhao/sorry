@@ -27,8 +27,7 @@
 
 
 
-
-        <% if( typeof nick === 'undefined' ) {%>
+        <% if( typeof session.user === 'undefined' ) {%>
             <form class="navbar-form form-inline pull-right" action="/login" method="get">
                 <button type="submit" class="btn-sm btn-primary">登陆</button>
                 or
@@ -37,7 +36,7 @@
         <% } else { %>
             <div class="nav-collapse collapse pull-right">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><%= nick %></a></li>
+                    <li class="active"><a href="#"><%= session.user.nick %></a></li>
                 </ul>
             </div>
 

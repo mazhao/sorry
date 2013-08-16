@@ -19,10 +19,9 @@ exports.login = function(req, res) {
     var pwd = req.body.userpassword;
 
     // login and set session user
-    req.session.nick=  id ;
-    console.log("id:" + id + " pwd:" + pwd);
+    req.session.user = { nick: id };
 
-    res.render('index', { title: title, nick: req.session.nick });
+    res.render('index', { title: title, user: req.session.user });
 };
 
 

@@ -36,11 +36,9 @@ app.use(express.session());
 // **==  位置必须放在 app.use(app.router) 之前，否则行为或数据可能不正确！ ==**
 
 app.use(function(req, res, next){
-
-    console.log("req.session:" + req.session);
+    // copy session to locals for each request.
     res.locals.session = req.session;
     next();
-
 });
 
 // == use session in ejs template end ==
@@ -50,24 +48,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
-
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
 
-
-
-
 app.get('/', routes.index);
 app.get('/users', user.list);
 
+
+// 登陆，登出，注册，等用户相关操作。
 app.get( '/login', user.gotologin);
 app.post("/login", user.login);
 
 app.get('/signup', user.gotosignup);
+app.post('/signup', user.signup);
+
+
+app.get('/logout', user.logout);
+
 
 // ==
 // 启动服务器

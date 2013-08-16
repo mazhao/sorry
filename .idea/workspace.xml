@@ -3,19 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/commons/navigation.ejs" afterPath="$PROJECT_DIR$/views/commons/navigation.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/signup.ejs" afterPath="$PROJECT_DIR$/views/user/signup.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="$PROJECT_DIR$/routes/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sorry.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.dummy" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376550803590" ignored="false" />
     <file path="/index.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376626823004" ignored="false" />
     <file path="/footer.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376551347189" ignored="false" />
-    <file path="/navigation.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376626859314" ignored="false" />
+    <file path="/navigation.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376630230985" ignored="false" />
     <file path="/index.js" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376625567416" ignored="false" />
     <file path="/login.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376580105786" ignored="false" />
-    <file path="/app.js" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376626802892" ignored="false" />
-    <file path="/user.js" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376624948961" ignored="false" />
-    <file path="/Dummy.txt" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376617699469" ignored="false" />
-    <file path="/signup.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376585418741" ignored="false" />
+    <file path="/app.js" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376634156903" ignored="false" />
+    <file path="/user.js" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376641968087" ignored="false" />
+    <file path="/Dummy.txt" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376641276602" ignored="false" />
+    <file path="/signup.ejs" changelist="2c23aaaa-1c3b-43e4-a1ec-60fa762741a8" time="1376641669133" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +39,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="jquery-1.10.2.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-1.10.2.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
+            <state line="68" column="121" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.74860334">
               <folding />
             </state>
           </provider>
@@ -71,19 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="16" selection-start="755" selection-end="755" vertical-scroll-proportion="0.5858209">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="3" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+            <state line="25" column="14" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -92,7 +78,7 @@
       <file leaf-file-name="navigation.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/commons/navigation.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="2" selection-start="1297" selection-end="1297" vertical-scroll-proportion="-15.625">
+            <state line="52" column="18" selection-start="2111" selection-end="2111" vertical-scroll-proportion="-12.625">
               <folding />
             </state>
           </provider>
@@ -101,7 +87,16 @@
       <file leaf-file-name="signup.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/signup.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+            <state line="62" column="98" selection-start="2111" selection-end="2122" vertical-scroll-proportion="-15.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/commons/footer.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="7" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +105,7 @@
       <file leaf-file-name="login.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/login.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="16" selection-start="1811" selection-end="1811" vertical-scroll-proportion="-10.75">
+            <state line="8" column="0" selection-start="153" selection-end="1762" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,7 +114,16 @@
       <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="11" selection-start="243" selection-end="243" vertical-scroll-proportion="-11.875">
+            <state line="20" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/commons/header.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="6" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,12 +150,12 @@
         <option value="$PROJECT_DIR$/views/commons/footer.ejs" />
         <option value="$PROJECT_DIR$/views/commons/header.ejs" />
         <option value="$PROJECT_DIR$/views/user/login.ejs" />
-        <option value="$PROJECT_DIR$/views/user/signup.ejs" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/views/commons/navigation.ejs" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/commons/navigation.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/user/signup.ejs" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
       </list>
     </option>
   </component>
@@ -416,9 +420,10 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="editor" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -511,11 +516,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298611" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1774291" sideWeight="0.6527778" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1774291" sideWeight="0.6539352" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39814815" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3472222" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3460648" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -632,51 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/commons/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="205" selection-end="205" vertical-scroll-proportion="0.47619048" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/commons/footer.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="38" selection-start="39" selection-end="39" vertical-scroll-proportion="-0.625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/signup.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="16" selection-start="1811" selection-end="1811" vertical-scroll-proportion="-10.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="11" selection-start="243" selection-end="243" vertical-scroll-proportion="-11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/commons/navigation.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="2" selection-start="1297" selection-end="1297" vertical-scroll-proportion="-15.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
@@ -684,9 +644,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/commons/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="6" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="153" selection-end="1762" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/commons/footer.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="755" selection-end="755" vertical-scroll-proportion="0.5858209">
+        <state line="25" column="14" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/commons/navigation.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="18" selection-start="2111" selection-end="2111" vertical-scroll-proportion="-12.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/signup.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="98" selection-start="2111" selection-end="2122" vertical-scroll-proportion="-15.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="121" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.74860334">
           <folding />
         </state>
       </provider>

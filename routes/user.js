@@ -1,3 +1,9 @@
+/**
+ * Module dependencies.
+ */
+
+var mongoose = require('mongoose'),
+    User = mongoose.model('User');
 
 /*
  * GET users listing.
@@ -60,6 +66,8 @@ exports.logout = function(req, res) {
 
 exports.signup = function(req, res) {
 
+    // for debug only
+    // @TODO using log4js to replace it later.
     var nick = req.body.nick;
     var email = req.body.email;
     var phone = req.body.phone;
@@ -67,6 +75,22 @@ exports.signup = function(req, res) {
     var description = req.body.description;
 
     console.log("nick:" + nick + " email:" + email + " phone:" + phone + " password:" + password + " desc:" + description);
+
+
+    var user = new User(req.body);
+    user.save(function(err){
+
+        if(err) {
+            // resend to signup page with error details
+            console.log('sign up error:' + err);
+        } else {
+            console.log('sign up success, find it with mongohub pls.');
+        }
+
+
+    });
+
+
 
     res.redirect('/');
 }

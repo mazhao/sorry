@@ -1,17 +1,36 @@
+/**
+ * Mongoose connection & schema load
+ */
+var env = process.env.NODE_ENV || 'development'
+    , config = require('./config/config')[env]
+    , mongoose = require('mongoose');
+
+mongoose.connect(config.db);
+
+var fs = require('fs');
+
+// Bootstrap models
+var models_path = __dirname + '/models'
+fs.readdirSync(models_path).forEach(function (file) {
+    if (~file.indexOf('.js')) require(models_path + '/' + file)
+})
 
 /**
  * Module dependencies.
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+    , routes = require('./routes')
+    , user = require('./routes/user')
+    , http = require('http')
+    , path = require('path');
+
+
+/**
+ * Express configuration
+ */
 
 var app = express();
-
-
 
 
 // all environments

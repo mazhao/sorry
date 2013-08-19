@@ -4,7 +4,7 @@
 
 var mongoose = require('mongoose')
     , Schema = mongoose.Schema      /* data schema */
-    , crypto = require('crypto');   /* hash with password */
+    , security = require('../lib/security');   /* hash with password */
 
 
 /**
@@ -32,21 +32,7 @@ UserSchema.methods = {
      * @returns {*} hashed password
      */
     encryptPassword: function (password) {
-
-        var encrypted;
-
-        // get digest
-        if (!password) {
-            encrypted = '';
-        } else {
-            try {
-                encrypted = crypto.createHmac('sha1', this.salt).update(password).digest('hex');
-            } catch (err) {
-                encrypted = '';
-            }
-        }
-        // return
-        return encrypted;
+        return security.encryptPassword(password, this.salt);
     },
 
     /**

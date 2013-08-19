@@ -3,7 +3,8 @@
  */
 
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    security = require('../lib/security');
 
 console.log('model User:' + User);
 
@@ -37,10 +38,38 @@ exports.login = function(req, res) {
     var id = req.body.userid;
     var pwd = req.body.userpassword;
 
-    // login and set session user
-    req.session.user = { nick: id };
+    User.find({$or: [{email:id}, {phone: id}]}).exec(function(err, users) {
+        if(err) {
+            console.log("find user error");
+            res.render('user/login', {title: title, errormsg: " %>_<% 服务器登陆错误，稍后请重新尝试！"});
 
-    res.render('index', { title: title, user: req.session.user });
+        } else {
+            console.log('find user:' + users[0]);
+            var hashedPassword = security.encryptPassword(pwd, users[0].salt);
+            console.log("generated password:" + hashedPassword);
+            console.log("stored    password:" + users[0].hashed_password);
+            if( hashedPassword == users[0].hashed_password ) {
+                console.log("login success:" + users[0].nick);
+                // login and set session user
+                req.session.user = {
+                    nick: users[0].nick,
+                    email: users[0].email,
+                    phone: users[0].phone,
+                    description: users[0].description
+                };
+                res.render('index', { title: title });
+            } else {
+                console.log("login failed, password no match");
+                res.render('user/login', {title: title, errormsg: "用户名或密码不正确，请重新尝试！"});
+            }
+
+
+        }
+
+    });
+
+
+
 };
 
 
@@ -80,12 +109,20 @@ exports.signup = function(req, res) {
 
 
     var user = new User(req.body);
+    console.log("model user:" + user);
     user.provider = 'local';
     user.save(function(err){
 
         if(err) {
             // resend to signup page with error details
             console.log('sign up error:' + err);
+            Object.keys(err.errors).forEach(function (key) {
+                console.log("error key:" + key);
+                console.log("error val:" + err.errors[key]);
+
+            });
+
+
         } else {
             console.log('sign up success, find it with mongohub pls.');
         }

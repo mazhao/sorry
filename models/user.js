@@ -102,9 +102,9 @@ UserSchema.path('nick').validate(function (nick) {
     return nick.length;
 }, '昵称不能为空！');
 
-UserSchema.path('nick').validate(function (nick) {
+UserSchema.path('nick').validate(function (nick, fn) {
     var User = mongoose.model('User');
-    if (this.isNew() || this.isModified('nick')) {
+    if (this.isNew || this.isModified('nick')) {
         User.find({nick: nick}).exec(function (err, users) {
             fn(err || users.length == 0);
             // fn(false) means system error or already exists.
@@ -124,7 +124,7 @@ UserSchema.path('email').validate(function (email) {
 UserSchema.path('email').validate(function (email, fn) {
     var User = mongoose.model('User');
 
-    if (this.isNew() || this.isModified('email')) {
+    if (this.isNew || this.isModified('email')) {
         User.find({email: email }).exec(function (err, users) {
             fn(err || users.length === 0); // fn(false) means validation failed (exists)
         });
@@ -142,7 +142,8 @@ UserSchema.path('phone').validate(function (phone) {
 
 UserSchema.path('phone').validate(function (phone, fn) {
     var User = mongoose.model('User');
-    if (this.isNew() || this.isModified('phone')) {
+
+    if (this.isNew || this.isModified('phone')) {
         User.find({phone: phone}).exec(function (err, users) {
             fn(err || users.length === 0)
         });
@@ -170,7 +171,7 @@ UserSchema.path('hashed_password').validate(function(hashedPassword){
  */
 
 UserSchema.pre('save', function(next){
-    if(!this.isNew()) {  // if not new then next
+    if(!this.isNew) {  // if not new then next
         return next();
     }
 
@@ -185,4 +186,5 @@ UserSchema.pre('save', function(next){
 /**
  * Set Model Name form User Schema
  */
-mongoose.model('User', UserSchema)
+mongoose.model('User', UserSchema);
+

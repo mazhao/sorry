@@ -12,8 +12,12 @@ var fs = require('fs');
 // Bootstrap models
 var models_path = __dirname + '/models'
 fs.readdirSync(models_path).forEach(function (file) {
-    if (~file.indexOf('.js')) require(models_path + '/' + file)
-})
+    if (~file.indexOf('.js')) {
+        var fullpath =models_path + '/' + file;
+        require(fullpath);
+        console.log('load model:' + fullpath);
+    }
+});
 
 /**
  * Module dependencies.

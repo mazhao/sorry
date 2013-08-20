@@ -4,8 +4,8 @@
 
 var mongoose = require('mongoose')
     , Schema = mongoose.Schema      /* data schema */
-    , security = require('../lib/security');   /* hash with password */
-
+    , security = require('../lib/security')   /* hash with password */
+    , logger = require('../lib/logger'); /* logger */
 
 /**
  * User Schema

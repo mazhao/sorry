@@ -5,9 +5,9 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     security = require('../lib/security'),
-    log = require('../lib/logger');
+    logger = require('../lib/logger');
 
-console.log('model User:' + User);
+logger.debug('model user:' + User);
 
 /*
  * GET users listing.
@@ -41,16 +41,16 @@ exports.login = function(req, res) {
 
     User.find({$or: [{email:id}, {phone: id}]}).exec(function(err, users) {
         if(err) {
-            console.log("find user error");
+            logger.debug("find user error");
             res.render('user/login', {title: title, errormsg: " %>_<% 服务器登陆错误，稍后请重新尝试！"});
 
         } else {
-            console.log('find user:' + users[0]);
+            logger.debug('find user:' + users[0]);
             var hashedPassword = security.encryptPassword(pwd, users[0].salt);
-            console.log("generated password:" + hashedPassword);
-            console.log("stored    password:" + users[0].hashed_password);
+            logger.debug("generated password:" + hashedPassword);
+            logger.debug("stored    password:" + users[0].hashed_password);
             if( hashedPassword == users[0].hashed_password ) {
-                console.log("login success:" + users[0].nick);
+                logger.debug("login success:" + users[0].nick);
                 // login and set session user
                 req.session.user = {
                     nick: users[0].nick,
@@ -60,7 +60,7 @@ exports.login = function(req, res) {
                 };
                 res.render('index', { title: title });
             } else {
-                console.log("login failed, password no match");
+                logger.debug("login failed, password no match");
                 res.render('user/login', {title: title, errormsg: "用户名或密码不正确，请重新尝试！"});
             }
 
@@ -101,7 +101,7 @@ exports.signup = function(req, res) {
     // for debug only
     // @TODO using log4js to replace it later.
 
-    log.debug("hello log4js");
+    logger.debug("hello log4js");
 
     var nick = req.body.nick;
     var email = req.body.email;
@@ -109,17 +109,17 @@ exports.signup = function(req, res) {
     var password = req.body.password;
     var description = req.body.description;
 
-    console.log("nick:" + nick + " email:" + email + " phone:" + phone + " password:" + password + " desc:" + description);
+    logger.debug("nick:" + nick + " email:" + email + " phone:" + phone + " password:" + password + " desc:" + description);
 
 
     var user = new User(req.body);
-    console.log("model user:" + user);
+    logger.debug("model user:" + user);
     user.provider = 'local';
     user.save(function(err){
 
         if(err) {
             // resend to signup page with error details
-            console.log('sign up error:' + err);
+            logger.debug('sign up error:' + err);
 
             var errormsg = {
                 formIds: [],
@@ -127,8 +127,8 @@ exports.signup = function(req, res) {
             };
 
             Object.keys(err.errors).forEach(function (key) {
-                console.log("error key:" + key);
-                console.log("error val:" + err.errors[key]);
+                logger.debug("error key:" + key);
+                logger.debug("error val:" + err.errors[key]);
                 errormsg.formIds.push(key);
                 errormsg.formErrors.push(err.errors[key]);
             });
@@ -140,7 +140,7 @@ exports.signup = function(req, res) {
             });
 
         } else {
-            console.log('sign up success, find it with mongohub pls.');
+            logger.debug('sign up success, find it with mongohub pls.');
 
             res.redirect('/');
         }

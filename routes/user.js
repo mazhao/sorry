@@ -141,8 +141,13 @@ exports.signup = function(req, res) {
 
         } else {
             logger.debug('sign up success, find it with mongohub pls.');
-
-            res.redirect('/');
+            req.session.user = {
+                nick: user.nick ,
+                email: user.email ,
+                phone: user.phone ,
+                description: user.description
+            };
+            res.render('index', { title: title });
         }
     });
 

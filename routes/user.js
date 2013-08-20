@@ -4,7 +4,8 @@
 
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    security = require('../lib/security');
+    security = require('../lib/security'),
+    log = require('../lib/logger');
 
 console.log('model User:' + User);
 
@@ -99,6 +100,9 @@ exports.signup = function(req, res) {
 
     // for debug only
     // @TODO using log4js to replace it later.
+
+    log.debug("hello log4js");
+
     var nick = req.body.nick;
     var email = req.body.email;
     var phone = req.body.phone;
@@ -116,21 +120,32 @@ exports.signup = function(req, res) {
         if(err) {
             // resend to signup page with error details
             console.log('sign up error:' + err);
+
+            var errormsg = {
+                formIds: [],
+                formErrors: []
+            };
+
             Object.keys(err.errors).forEach(function (key) {
                 console.log("error key:" + key);
                 console.log("error val:" + err.errors[key]);
-
+                errormsg.formIds.push(key);
+                errormsg.formErrors.push(err.errors[key]);
             });
 
+            res.render('user/signup.ejs', {
+                title: title + " - 注册 信息错误" ,
+                errormsg: errormsg ,
+                user: user
+            });
 
         } else {
             console.log('sign up success, find it with mongohub pls.');
+
+            res.redirect('/');
         }
-
-
     });
 
 
 
-    res.redirect('/');
 }

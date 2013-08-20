@@ -20,12 +20,35 @@
 
 
             <form id="signup-form" class="form-horizontal" role="form" action="/signup" method="post">
+                <% if( typeof errormsg !== 'undefined' ) {%>
+                <div class="form-group alert">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <ul>
+                        <% for( var i = 0; i < errormsg.formIds.length; i++) { %>
+                            <li> <%= errormsg.formErrors[i] %> </li>
+                        <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
 
                 <div class="form-group">
                     <label for="nick" class="col-lg-2 control-label">昵称</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="nick" name="nick" placeholder="昵称">
+                        <!-- check if pre-load form element -->
+                        <% if( typeof user !== 'undefined' && typeof user.nick !== 'undefined') {%>
+                        <input type="text" class="form-control" id="nick" name="nick" placeholder="昵称"
+                               value="<%= user.nick %>"/>
+                        <% } else { %>
+                        <input type="text" class="form-control" id="nick" name="nick" placeholder="昵称"/>
+                        <% } %>
+
+                        <!-- check if has error
+                        <% if( typeof errormsg !== 'undefined' && errormsg.formIds.indexOf('nick') >= 0 ) { %>
+                            <span class="has-error"><%= errormsg.formErrors[errormsg.formIds.indexOf('nick')] %></span>
+                        <% } %>
+                        -->
                     </div>
                 </div>
 
@@ -33,7 +56,12 @@
                     <label for="email" class="col-lg-2 control-label">邮件地址</label>
 
                     <div class="col-lg-10">
+                        <% if( typeof user !== 'undefined' && typeof user.email !== 'undefined') {%>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="邮件地址"
+                               value="<%= user.email %>">
+                        <% } else {%>
                         <input type="text" class="form-control" id="email" name="email" placeholder="邮件地址">
+                        <% }%>
                     </div>
                 </div>
 
@@ -41,7 +69,13 @@
                     <label for="phone" class="col-lg-2 control-label">手机号码</label>
 
                     <div class="col-lg-10">
+                        <% if( typeof user !== 'undefined' && typeof user.phone !== 'undefined') {%>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="手机号码"
+                                value="<%= user.phone %>" />
+                        <% } else { %>
                         <input type="text" class="form-control" id="phone" name="phone" placeholder="手机号码">
+
+                        <% }%>
                     </div>
                 </div>
 
@@ -49,22 +83,31 @@
                     <label for="password" class="col-lg-2 control-label">密码</label>
 
                     <div class="col-lg-10">
+                        <% if( typeof user !== 'undefined' && typeof user.password !== 'undefined') {%>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="登陆密码"
+                                value="<%= user.password %>">
+                        <% } else {%>
                         <input type="password" class="form-control" id="password" name="password" placeholder="登陆密码">
+                        <% } %>
                         <span class="help-block"> 为了保证您账户的安全，请尽量保证密码在8个字符以上。 </span>
                     </div>
                 </div>
-
 
 
                 <div class="form-group">
                     <label for="description" class="col-lg-2 control-label">个人描述</label>
 
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="3" id="description" name="description" placeholder="说两句吧，一阵见血更好~"></textarea>
+                        <% if( typeof user !== 'undefined' && typeof user.description !== 'undefined') {%>
+                        <textarea class="form-control" rows="3" id="description" name="description"
+                                  placeholder="说两句吧，一阵见血更好~"><%= user.description %></textarea>
+                        <% } else { %>
+                        <textarea class="form-control" rows="3" id="description" name="description"
+                                  placeholder="说两句吧，一阵见血更好~"></textarea>
+                        <% } %>
+
                     </div>
                 </div>
-
-
 
 
                 <div class="form-group">
@@ -79,41 +122,38 @@
 </div>
 
 
-
-
 <% include ../commons/footer.ejs %>        <!-- 相对路径 -->
 
 
-
-<script type="text/javascript" >
+<script type="text/javascript">
 
     // ========================
     // common function
     // ========================
 
-    function validEmail( v ) {
+    function validEmail(v) {
         var r = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
         return (v.match(r) == null) ? false : true;
     }
 
-    function validPhone( v ) {
+    function validPhone(v) {
         var r = new RegExp('^[1-9]{1}[0-9]{10}$');
         return ( v.match(r) == null ) ? false : true;
     }
 
-    function validPassword( v ) {
+    function validPassword(v) {
 
         return v != '' && v.length >= 8;
 
     }
 
-    function validNick( v ) {
+    function validNick(v) {
 
         return v != '' && v.length > 0;
 
     }
 
-    function validDescription( v ) {
+    function validDescription(v) {
 
         return v != '' && v.length > 0;
 
@@ -123,8 +163,8 @@
     // ========================
     // check function
     // ========================
-    function checkEmail () {
-        if(!validEmail( $('#email').val() )) {
+    function checkEmail() {
+        if (!validEmail($('#email').val())) {
             console.log("not valid email address");
             $('#email').parent().parent().addClass('has-error');
             $('#email').focus();
@@ -138,7 +178,7 @@
 
 
     function checkPhone() {
-        if(!validPhone( $('#phone').val() )) {
+        if (!validPhone($('#phone').val())) {
             console.log("not valid email address");
             $('#phone').parent().parent().addClass('has-error');
             $('#phone').focus();
@@ -150,7 +190,7 @@
     }
 
     function checkPassword() {
-        if(!validPassword( $('#password').val() )) {
+        if (!validPassword($('#password').val())) {
             $('#password').parent().parent().addClass('has-error');
             $('#password').focus();
             return false;
@@ -161,7 +201,7 @@
     }
 
     function checkNick() {
-        if(!validNick( $('#nick').val() )) {
+        if (!validNick($('#nick').val())) {
             $('#nick').parent().parent().addClass('has-error');
             $('#nick').focus();
             return false;
@@ -172,7 +212,7 @@
     }
 
     function checkDescription() {
-        if(!validDescription( $('#description').val() )) {
+        if (!validDescription($('#description').val())) {
             $('#description').parent().parent().addClass('has-error');
             $('#description').focus();
             return false;
@@ -183,40 +223,39 @@
     }
 
 
-
     // ========================
     // trigger function
     // ========================
-    $(document).ready(function(){
+    $(document).ready(function () {
 
 
-        $('#signup-form').submit(function(){
+        $('#signup-form').submit(function () {
             return checkEmail() && checkPhone() && checkPassword() && checkNick() && checkDescription();
-        }) ;
+        });
 
 
         // email check
-        $('#email').blur(function(){
-           checkEmail();
+        $('#email').blur(function () {
+            checkEmail();
         });
 
         // phone number check
-        $('#phone').blur(function(){
-           checkPhone();
+        $('#phone').blur(function () {
+            checkPhone();
         });
 
         // password check
 
-        $('#password').blur(function(){
+        $('#password').blur(function () {
             checkPassword();
         });
 
         // nick check
-        $('#nick').blur(function(){
+        $('#nick').blur(function () {
             checkNick();
         });
 
-        $('#description').blur(function(){
+        $('#description').blur(function () {
             checkDescription();
         });
 

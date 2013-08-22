@@ -1,41 +1,39 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<!-- if you want menu fixed to top then add class  'navbar-fixed-top' to nav -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-
         <a class="navbar-brand" href="/">纠结乎~</a>
+    </div>
 
-        <div class="nav-collapse collapse">
+    <div class="collapse navbar-collapse navbar-ex8-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">事件</a></li>
+            <li><a href="#about">主题</a></li>
+            <li><a href="#contact">动态</a></li>
+        </ul>
 
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/">事件</a></li>
-                <li><a href="#about">主题</a></li>
-                <li><a href="#contact">动态</a></li>
-            </ul>
+        <form class="navbar-form navbar-left" role="search" style="width:400px;">
+            <div class="form-group">
+                <input type="text" class="form-control input-sm " style="width:300px;" placeholder="输入你关心的事儿~">
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">发现</button>
+        </form>
 
-            <form class="navbar-form form-inline pull-left col-lg-4">
-                <div class="col-lg-10">
-                    <input type="text" class="form-control input-sm" placeholder="输入你关心的事儿~">
-                </div>
-                <button type="submit" class="btn-sm btn-success">发现</button>
-            </form>
-
-        </div>
-
-
-
-        <% if( typeof session.user === 'undefined' ) {%>
+        <ul class="nav navbar-nav navbar-right">
+            <% if( typeof session.user === 'undefined' ) {%>
             <form class="navbar-form form-inline pull-right" action="/login" method="get">
-                <button type="submit" class="btn-sm btn-primary">登陆</button>
-                or
+                <button type="submit" class="btn btn-sm btn-primary">登陆</button>
+                <span style="color:lightgray;"> &nbsp; or &nbsp;</span>
                 <a href="/signup">注册</a>
             </form>
-        <% } else { %>
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav navbar-nav">
+            <% } else { %>
                     <!--
                     <li class="active"><a href="#"><%= session.user.nick %></a></li>
                     -->
@@ -49,13 +47,11 @@
                             <li><a href="/logout">退出</a></li>
                         </ul>
                     </li>
-                </ul>
-            </div>
+            <% } %>
+        </ul>
+    </div>
 
-
-
-
-        <% } %>
 
     </div>
-</div>
+
+</nav>

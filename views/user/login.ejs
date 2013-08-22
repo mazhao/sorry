@@ -10,31 +10,32 @@
 <br/>
 
 
-<div class="container">
+<div class="container" style="">
 
-
-    <div class="panel col-lg-6 col-lg-offset-3">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+    <div class="panel panel-primary">
         <div class="panel-heading">不再纠结~</div>
         <div class="panel-body">
 
 
             <form class="form-horizontal" role="form" action="/login" method="post">
-                <div class="form-group">
-                    <label for="userid" class="col-lg-2 control-label">用户名</label>
 
+                <div class="form-group">
+                    <label for="userid" class="col-lg-2 control-label ">用户名</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="userid" name="userid" placeholder="邮件地址/手机号码 都可以哦~">
+                     <input type="text" class="form-control" id="userid" name="userid" placeholder="邮件地址/手机号码 都可以哦~">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="userpassword" class="col-lg-2 control-label">密码</label>
+                    <label for="userpassword" class=" col-lg-2 control-label">密码</label>
 
                     <div class="col-lg-10">
                         <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="密码就是密码~">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
+                    <div class="col-lg-10 col-lg-offset-2">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox">记住我，别老让我登陆
@@ -44,22 +45,24 @@
                 </div>
 
                 <% if( typeof errormsg !== 'undefined' ) {%>
-                <div class="form-group alert">
-                    <div class="col-lg-offset-2 col-lg-10">
+                <div class="form-group alert alert-warning">
+                    <div class="">
                         <%= errormsg %>
                     </div>
                 </div>
                 <% } %>
 
                 <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
-                        <button type="submit" class="btn btn-primary col-4">登陆</button>
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary col-lg-6">登陆</button>
                     </div>
                 </div>
             </form>
 
         </div>
     </div>
+    </div>
+    <div class="col-sm-2"></div>
 </div>
 
 <!-- left  --><!-- right  -->

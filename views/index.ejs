@@ -7,18 +7,116 @@
 
 <% include commons/navigation.ejs %>        <!-- 相对路径 -->
 
+        <br/>
+
+<div class="container">
+        <div class='row'>
+            <div class="col-sm-9"  >
+                最新动态<hr/>
+
+                <h4 class="text-center">  推荐一些值得关注的人
+                    <span style="font-size: 12px;">
+                        &nbsp;&nbsp;<a href="#"> 换一批</a>
+                        &nbsp;&nbsp;<a href="#">更多推荐</a>
+                    </span>
+                </h4>
+
+                <div class="panel panel-success col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img data-src="holder.js/140x140"
+                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAYAAACHjumMAAANaklEQVR4Xu3ciY8U5RbG4Q+RJUpAAUWRxRgiKq6YiGGTxH/ciIoguGAAjeASBTdENlEQ5d5TSZG2mblDz/Rr6jJPJ8bEmT4z9fSZX6qru11y4cKFW82NAAECAYElAhNQNZIAgU5AYCwCAQIxAYGJ0RpMgIDA2AECBGICAhOjNZgAAYGxAwQIxAQEJkZrMAECAmMHCBCICQhMjNZgAgQExg4QIBATEJgYrcEECAiMHSBAICYgMDFagwkQEBg7QIBATEBgYrQGEyAgMHaAAIGYgMDEaA0mQEBg7AABAjEBgYnRGkyAgMDYAQIEYgICE6M1mAABgbEDBAjEBAQmRmswAQICYwcIEIgJCEyM1mACBATGDhAgEBMQmBitwQQICIwdIEAgJiAwMVqDCRAQGDtAgEBMQGBitAYTICAwdoAAgZiAwMRoDSZAQGDsAAECMQGBidEaTICAwNgBAgRiAgITozWYAAGBsQMECMQEBCZGazABAgJjBwgQiAkITIzWYAIEBMYOECAQExCYGK3BBAgIjB0gQCAmIDAxWoMJEBAYO0CAQExAYGK0BhMgIDB2gACBmIDAxGgNJkBAYOwAAQIxAYGJ0RpMgIDA2AECBGICAhOjNZgAAYGxAwQIxAQEJkZrMAECAmMHCBCICQhMjNZgAgQExg4QIBATEJgYrcEECAiMHSBAICYgMDFagwkQEBg7QIBATEBgYrQGEyAgMHaAAIGYgMDEaA0mQEBg7AABAjEBgYnRGkyAgMDYAQIEYgICE6M1mAABgbEDBAjEBAQmRmswAQICYwcIEIgJCEyM1mACBATGDhAgEBMQmBitwQQICIwdIEAgJiAwMVqDCRAQGDtAgEBMQGBitAYTICAwdoAAgZiAwMRoDSZAQGDsAAECMQGBidEaTICAwNgBAgRiAgITozWYAAGBsQMECMQEBCZGazABAgJjBwgQiAkITIzWYAIEBMYOECAQExCYGK3BBAgIjB0gQCAmIDAxWoMJEBAYO0CAQExAYGK0BhMgIDB2gACBmIDAxGgNJkBAYOwAAQIxAYGJ0RpMgIDA2AECBGICAhOjNZgAAYGxAwQIxAQEJkZrMAECAmMHCBCICQhMjNZgAgQExg4QIBATEJgYrcEECAiMHSBAICYgMDFagwkQEBg7QIBATEBgYrQGEyAgMHaAAIGYgMDEaA0mQEBg7AABAjEBgYnRGkyAgMDYAQIEYgICE6M1mAABgbEDBAjEBAQmRmswAQICYwcIEIgJCEyM1mACBATGDhAgEBMQmBitwQQICIwdIEAgJiAwMVqDCRAQGDtAgEBMQGBitAYTICAwdoAAgZiAwMRoJx/822+/tb///ru743333dcefPDByYf89x6///57+/rrr9uzzz474/3PnTvXfvjhh+5n1M9bt25d27JlS1uyZMm8ft5Md7qXjmVqKItwkMAM5EG/ePFiO3r06O3fpv7Y33zzzYl/u1u3brVDhw61GzdutDfeeOMf0aiYHD58uNUf//ht6dKlbdeuXe2BBx6Y+GeO3+FeOpYFYyzyAQIzkAX46KOP2i+//LLgwJw+fbo7e1m5cmXbs2fP7cBUeN57773u7KZuq1atag8//HD7448/2s8//9z9t4ra3r1724oVKxakci8dy4Ig3LkJzMCW4Pr16+3dd99tFYRJz2BGzxyWL1/e9u3bdzsw3377bfv888+7o33iiSf+8fTp/Pnz7eOPP+6+VtF59dVXp6JyLx3LVEAW4RCBGdiDfvPmzfb2229PHJh6+lP3q/vXbTww77//frt69Wp35vL666/fcdR9gKZ1FlM/4F46loGtyf/NryMwA3uo5vtH+emnn7Yff/zx9tGMPkWqp0X19KjOil566aX2yCOP3HHU9bW33nqr/fXXX23btm2trsl899137f7772+vvPJK9+/R29mzZ7uvV5B27tx5x9cXEphpH8uTTz45sEd58fw6AjOwx3o+gamw1B/l6G00MHVtp66LVAzqwu94LPr7HT9+vP30009tw4YNbevWre3IkSPdl9auXdtFpL9du3atu5BcUXrooYe6p1QzvQI1lGN54YUXBvYoL55fR2AG9lhP+kf5559/toMHD3YvN9crQNu3b+9iMvoU6cKFC+3DDz+848Lv+KF/88037YsvvmiPP/5427FjR/vqq6/amTNnum977rnn2saNG7uo9BeL62Xu/fv3zxqsIR3LwB7mRfPrCMzAHupJ/yg/+OCDdunSpe4Moq6t1P3rv40Gpr+IW9df6qXo2d7v8uuvv7Zjx47dDlHR1Mvade2m7nPgwIH25ZdftgpR3WZ7utWTDulYpvken4GtzKB/HYEZ2MMzyR9l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"
+                                 class="img-circle" alt="140x140" style="width: 100px; height: 100px;">
+                            <span>开导王</span>
+                            <span>小天使：150个回答</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                             <span>
+                                个人介绍，我是张三，我是小天使
+                             </span>
+                        </div>
+                    </div>
+                        <div class="row">
+
+                        <div class="col-sm-4">
+                            <button class="btn btn-success btn-xs pull-right">关注</button>
+                        </div>
+                        </div>
 
 
+                </div>
+
+                <div class="panel panel-success col-sm-4">
+2
+                </div>
+
+                <div class="panel panel-success col-sm-4">
+3
+                </div>
+
+            </div>
+
+            <div class="col-sm-3"  >
+
+                <button class="btn btn-success col-sm-12 btn-lg">我要发</button>
+                <div class="list-group"></div>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">我收藏的事件</a>
+                    <a href="#" class="list-group-item ">我关注的事件</a>
+                    <a href="#" class="list-group-item ">邀请我参与的事件</a>
+
+                </div>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item ">所有事件</a>
+                    <a href="#" class="list-group-item ">所有主题</a>
+                    <a href="#" class="list-group-item ">首秀场</a>
+                    <a href="#" class="list-group-item ">老娘舅（约架&劝架）</a>
+
+                </div>
+
+
+                <button class="btn btn-default col-sm-12">邀请好友</button>
+
+                <div class="list-group"></div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        热门主题 <a href="#" class="pull-right">全部</a>
+                    </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item ">小情侣 <span class="badge pull-right">42</span> </a>
+                            <a href="#" class="list-group-item ">办公室 <span class="badge pull-right">42</span> </a>
+                            <a href="#" class="list-group-item ">夫妻生活 <span class="badge pull-right">42</span> </a>
+                            <a href="#" class="list-group-item ">邻里之间 <span class="badge pull-right">42</span> </a>
+                            <a href="#" class="list-group-item ">婆媳大战 <span class="badge pull-right">42</span> </a>
+                        </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        感兴趣的人<a href="#" class="pull-right">全部</a>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item ">小三</a>
+                        <a href="#" class="list-group-item ">我的心里有多苦</a>
+                        <a href="#" class="list-group-item ">阳光明媚的生活</a>
+                        <a href="#" class="list-group-item ">夫妻大作战</a>
+                        <a href="#" class="list-group-item ">恶婆婆</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
 <!-- left  --><!-- right  -->
 
 <!-- footer  -->
 
 <!-- js  -->
-
-Hello World!<br/>
-
-<%= session %> <br/>
-
-
 
 <% include commons/footer.ejs %>        <!-- 相对路径 -->

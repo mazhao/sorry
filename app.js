@@ -26,6 +26,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 var express = require('express')
     , routes = require('./routes')
     , user = require('./routes/user')
+    , event = require('./routes/event')
     , http = require('http')
     , path = require('path');
 
@@ -90,6 +91,11 @@ app.post('/signup', user.signup);
 
 
 app.get('/logout', user.logout);
+
+
+// event
+app.get('/event/add', event.gotoadd);
+
 
 
 // ==

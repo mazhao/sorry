@@ -6,8 +6,12 @@
 
 <% include ../commons/navigation.ejs %>        <!-- 相对路径 -->
 
+
+
+
 <br/>
 <br/>
+
 
 
 <div class="container">
@@ -15,7 +19,19 @@
     <label> <input type="radio" name="eventtype"> &nbsp;对不起，我很内疚！</input></label>
     <label> <input type="radio" name="eventtype">&nbsp;我受伤了，心在滴血！</input></label>
     <label> <input type="radio" name="eventtype">&nbsp;小儿科，经过即经历！</input></label>
+    <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
 
+    主题：<input type="textfield"/>
+
+    <label> <input type="checkbox" />  匿名</label>
+
+    分享到
+    <label> <input type="checkbox" />  微博</label>
+    <label> <input type="checkbox" />  腾讯微博</label>
+
+
+    <button class="btn btn-primary" >取消</button>
+    <button class="btn btn-primary" >保存</button>
 
 
 </div>
@@ -30,3 +46,33 @@
 
 
 <% include ../commons/footer.ejs %>        <!-- 相对路径 -->
+
+<script src="/ckeditor/ckeditor.js"></script>
+
+<script>
+
+    // This call can be placed at any point after the
+    // <textarea>, or inside a <head><script> in a
+    // window.onload event handler.
+
+    // Replace the <textarea id="editor"> with an CKEditor
+    // instance, using default configurations.
+
+    CKEDITOR.replace('editor1', {
+        /*
+         toolbar: [
+         [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList' ]
+         ] */
+
+        toolbarGroups: [
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+            { name: 'styles' },
+            { name: 'colors' },
+            { name: 'tools' },
+            { name: 'others' },
+            { name: 'about' }
+        ],
+    });
+
+</script>

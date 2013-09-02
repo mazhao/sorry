@@ -14,24 +14,59 @@
 
 
 
+
 <div class="container">
 
-    <label> <input type="radio" name="eventtype"> &nbsp;对不起，我很内疚！</input></label>
-    <label> <input type="radio" name="eventtype">&nbsp;我受伤了，心在滴血！</input></label>
-    <label> <input type="radio" name="eventtype">&nbsp;小儿科，经过即经历！</input></label>
-    <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
-
-    主题：<input type="textfield"/>
-
-    <label> <input type="checkbox" />  匿名</label>
-
-    分享到
-    <label> <input type="checkbox" />  微博</label>
-    <label> <input type="checkbox" />  腾讯微博</label>
 
 
-    <button class="btn btn-primary" >取消</button>
-    <button class="btn btn-primary" >保存</button>
+    <form role="form">
+        <div class="form-group">
+            <div class="btn-group">
+                <button id="eventtype_sorry" type="button" class="btn btn-primary"> <span id="eventtype_check" class="glyphicon glyphicon-check"></span>对不起，我很内疚！</button>
+                <button id="eventtype_hurt"  type="button" class="btn btn-default"> 我受伤了，心在滴血！</button>
+                <button id="eventtype_pass"  type="button" class="btn btn-default"> 小儿科，经过即经历！</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+
+            <!--
+            http://loopj.com/jquery-tokeninput/demo.html
+http://www.danwellman.co.uk/demos/autocomplete.html?subject=&message=#
+            -->
+
+            <label for="eventcategory">主题：
+                <input type="textfield" name="category" id="eventcategory"/>
+            </label>
+
+        </div>
+        <div class="form-group">
+            <label> <input type="checkbox" />  匿名</label>
+        </div>
+
+        <div class="form-group">
+            分享到
+            <label> <input type="checkbox" />  微博</label>
+            <label> <input type="checkbox" />  腾讯微博</label>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" >取消</button>
+            <button class="btn btn-primary" >保存</button>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
@@ -73,6 +108,56 @@
             { name: 'others' },
             { name: 'about' }
         ],
+    });
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#eventtype_sorry').click(function() {
+            $('#eventtype_check').remove();
+
+            $('#eventtype_sorry').removeClass('btn-default');
+            $('#eventtype_sorry').addClass('btn-primary');
+            $('#eventtype_sorry').prepend('<span id="eventtype_check" class="glyphicon glyphicon-check">');
+
+
+            $('#eventtype_hurt' ).removeClass('btn-primary');
+            $('#eventtype_hurt' ).addClass('btn-default');
+
+            $('#eventtype_pass' ).removeClass('btn-primary');
+            $('#eventtype_pass' ).addClass('btn-default');
+        });
+        $('#eventtype_hurt').click(function() {
+            $('#eventtype_check').remove();
+
+            $('#eventtype_hurt').removeClass('btn-default');
+            $('#eventtype_hurt').addClass('btn-primary');
+            $('#eventtype_hurt').prepend('<span id="eventtype_check" class="glyphicon glyphicon-check">');
+
+            $('#eventtype_sorry').removeClass('btn-primary');
+            $('#eventtype_sorry' ).addClass('btn-default');
+
+            $('#eventtype_pass').removeClass('btn-primary');
+            $('#eventtype_pass' ).addClass('btn-default');
+
+        });
+        $('#eventtype_pass').click(function() {
+            $('#eventtype_check').remove();
+
+            $('#eventtype_pass').removeClass('btn-default');
+            $('#eventtype_pass').addClass('btn-primary');
+            $('#eventtype_pass').prepend('<span id="eventtype_check" class="glyphicon glyphicon-check">');
+
+            $('#eventtype_sorry').removeClass('btn-primary');
+            $('#eventtype_sorry' ).addClass('btn-default');
+
+            $('#eventtype_hurt').removeClass('btn-primary');
+            $('#eventtype_hurt' ).addClass('btn-default');
+
+        });
     });
 
 </script>
